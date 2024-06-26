@@ -1,11 +1,18 @@
 "use client"
-import { FlipWords } from "@/components/flip-words";
-import Image from "next/image";
+import { FlipWords } from "@/components/flip-words"
+import Image from "next/image"
 import { motion } from "framer-motion"
+import { useRef } from "react"
+import Link from "next/link"
+import { FaTiktok } from "react-icons/fa"
+import { FaYoutube } from "react-icons/fa"
+import { FaInstagram } from "react-icons/fa";
 
 export default function Home() {
 
-  const words = ["Radiant", "Alluring", "Enchanting", "Unique", "loudrone"];
+  const words = ["Radiant", "Enchanting", "Unique", "loudrone"];
+
+  const revolution = useRef<any>(null)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between"> 
@@ -58,6 +65,7 @@ export default function Home() {
             repeatType: 'loop',
             opacity: { delay: 2, duration: 0.8 },
           }}  
+          onClick={()=>revolution.current.scrollIntoView({ behavior: 'smooth' })} 
           className="relative inline-flex overflow-hidden rounded-3xl p-[1px] focus:outline-none"
         >
           <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#3b82f6_0%,#93c5fd_50%,#6366f1_100%)]" />
@@ -66,9 +74,9 @@ export default function Home() {
           </span>
         </motion.button>
       </div>
-      <div className="flex flex-col md:flex-row w-full items-stretch">
+      <div ref={revolution} className="flex flex-col md:flex-row w-full items-stretch">
         <div className="flex-1 flex items-center justify-center p-10 lg:p-0">
-          <p className="text-center md:text-left">Revolutionizing the way you see the world from above</p>
+          <h1 className="text-center md:text-left text-4xl m-20">Revolutionizing the way you see the world from above</h1>
         </div>
         <div className="flex-1 flex items-center justify-center ">
           <Image
@@ -79,6 +87,23 @@ export default function Home() {
             className="w-full h-auto"
           />
         </div>
+      </div>
+      <div className="flex flex-col md:flex-row w-full h-32">
+
+
+        <Link href={"https://www.tiktok.com/@loudrone5"} style={{backgroundColor: "#ff0050"}} className="flex-1 flex items-center justify-center p-20 lg:p-0">
+          <FaTiktok />
+        </Link>
+        <Link href={"https://www.youtube.com/channel/UChwiFd8J75zbDcZD_8Eyqcg"} style={{backgroundColor: "#FF0000"}} className="flex-1 flex items-center justify-center p-20 lg:p-0">
+          <FaYoutube/>
+        </Link>
+
+        <Link href={"https://www.instagram.com/loudrone/"} className="flex-1 flex items-center justify-center bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] p-20 lg:p-0">
+          <FaInstagram/>
+        </Link>
+          
+ 
+
       </div>
     </main>
   )
