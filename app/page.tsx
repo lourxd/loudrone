@@ -4,9 +4,10 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
-import { FaTiktok } from "react-icons/fa"
+import { FaPhoneAlt, FaTiktok } from "react-icons/fa"
 import { FaYoutube } from "react-icons/fa"
 import { FaInstagram } from "react-icons/fa";
+import { IoMailOutline } from "react-icons/io5"
 
 export default function Home() {
 
@@ -101,16 +102,21 @@ export default function Home() {
           />
         </div>
         <div className="flex-1 flex flex-col">
-          <div className="p-20 h-full">
-            <h2 className="text-xl">Contact</h2>
-            
-            <h3>
-              <a href="tel:+351961287164">+351 961 287 164</a>
-            </h3>
-            <h3>
-              <a href="mailto:lourencorosado@gmail.com">lourencorosado@gmail.com</a>
-            </h3>
-
+          <div className="p-20 h-full flex items-center justify-center flex-col gap-10">
+            <button className="p-[3px] relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+              <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent flex items-center gap-3">
+                <FaPhoneAlt />
+                <a href="tel:+351961287164">+351 961 287 164</a>
+              </div>
+            </button>
+            <button className="p-[3px] relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+              <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent flex items-center gap-3">
+                <IoMailOutline />
+                <a href="mailto:lourencorosado@gmail.com">lourencorosado@gmail.com</a>
+              </div>
+            </button>
           </div>
           <div className="flex">
             <Link href={"https://www.tiktok.com/@loudrone5"} style={{ backgroundColor: "#ff0050" }} className="flex-1 flex items-center justify-center lg:p-20 w-full h-32">
