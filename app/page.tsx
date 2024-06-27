@@ -15,7 +15,7 @@ export default function Home() {
   const revolution = useRef<any>(null)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between"> 
+    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden"> 
       <div className="p-24 h-screen flex flex-col items-center justify-between">
         <motion.div
           initial={{ opacity: 0 }}
@@ -38,7 +38,7 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-0 backdrop-blur-sm"></div> 
         </motion.div>
         <div className="h-[40rem] flex justify-center items-center px-4 z-10 relative">
-          <div className="text-4xl mx-auto font-bold text-white text-center">
+          <div className="text-4xl mx-auto font-bold text-white text-center text-nowrap">
             <FlipWords words={words} /> 
             videos
             <div className="w-full md:w-[30rem] lg:w-[40rem] relative mt-4">
@@ -88,22 +88,42 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row w-full h-32">
 
+      <div className="flex flex-col md:flex-row w-full items-stretch">
+        <div className="flex-1 flex items-center justify-center">
+          <Image
+            src="/sec.png"
+            width={1920}
+            height={1080}
+            alt="mainimage"
+            className="w-full h-auto"
+            style={{ objectFit: "contain"}}
+          />
+        </div>
+        <div className="flex-1 flex flex-col">
+          <div className="p-20 h-full">
+            <h2 className="text-xl">Contact</h2>
+            
+            <h3>
+              <a href="tel:+351961287164">+351 961 287 164</a>
+            </h3>
+            <h3>
+              <a href="mailto:lourencorosado@gmail.com">lourencorosado@gmail.com</a>
+            </h3>
 
-        <Link href={"https://www.tiktok.com/@loudrone5"} style={{backgroundColor: "#ff0050"}} className="flex-1 flex items-center justify-center p-20 lg:p-0">
-          <FaTiktok />
-        </Link>
-        <Link href={"https://www.youtube.com/channel/UChwiFd8J75zbDcZD_8Eyqcg"} style={{backgroundColor: "#FF0000"}} className="flex-1 flex items-center justify-center p-20 lg:p-0">
-          <FaYoutube/>
-        </Link>
-
-        <Link href={"https://www.instagram.com/loudrone/"} className="flex-1 flex items-center justify-center bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] p-20 lg:p-0">
-          <FaInstagram/>
-        </Link>
-          
- 
-
+          </div>
+          <div className="flex">
+            <Link href={"https://www.tiktok.com/@loudrone5"} style={{ backgroundColor: "#ff0050" }} className="flex-1 flex items-center justify-center lg:p-20 w-full h-32">
+              <FaTiktok />
+            </Link>
+            <Link href={"https://www.youtube.com/channel/UChwiFd8J75zbDcZD_8Eyqcg"} style={{ backgroundColor: "#FF0000" }} className="flex-1 flex items-center justify-center lg:p-20 w-full h-32">
+              <FaYoutube />
+            </Link>
+            <Link href={"https://www.instagram.com/loudrone/"} className="flex-1 flex items-center justify-center bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] lg:p-20 w-full h-32">
+              <FaInstagram />
+            </Link>
+          </div>
+        </div>
       </div>
     </main>
   )

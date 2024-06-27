@@ -5,8 +5,20 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://loudrone.com'),
   title: "loudrone",
   description: "Revolutionizing the way you see the world from above",
+  openGraph: {
+    images: [
+      {
+        url: "/banner.jpg",
+        width: 630,
+        height: 630,
+        alt: "banner",
+        type: 'image/jpeg',
+      }
+    ],
+  }
 };
 
 export default function RootLayout({
